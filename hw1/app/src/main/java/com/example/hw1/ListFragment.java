@@ -37,11 +37,13 @@ public class ListFragment extends Fragment {
 
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            cellCount = savedInstanceState.getInt("count");
-        } catch (Throwable t) {
+
+        if (savedInstanceState == null) {
             cellCount = 100;
+            return;
         }
+
+        cellCount = savedInstanceState.getInt("count");
     }
 
 
